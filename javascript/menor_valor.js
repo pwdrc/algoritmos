@@ -1,16 +1,14 @@
-// Algoritmo para percorrer uma dada lista de números e identificar o menor valor:
+// Algoritmo para percorrer uma dada lista de objetos/elementos e identificar o menor valor:
 
-const lista = [10, 20, 40, 100, 1, 30, -1, 4, 5];
+const lista = require('./objetos');
 
 let posicaoDoMenorValor = 0;
 
 for (let i = 0; i < lista.length; i++) {
 
-    if(lista[i] < lista[posicaoDoMenorValor]) {
-
+    if(lista[i].valor < lista[posicaoDoMenorValor].valor) {
         posicaoDoMenorValor = i;
-
     }
 }
 
-console.log(lista[posicaoDoMenorValor]);
+console.log(lista[posicaoDoMenorValor].valor);
