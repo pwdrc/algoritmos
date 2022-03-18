@@ -11,8 +11,11 @@ function apontaMenorValor(arr, posicaoInicial) {
             menorValor = i;
         }
     }
-    return arr[menorValor].valor;
+    //return arr[menorValor].valor;
+    return menorValor;
 }
 
-teste = apontaMenorValor(lista, 0);
-console.log(teste);
+//teste = apontaMenorValor(lista, 0);
+//console.log(teste);
+
+module.exports = apontaMenorValor;
