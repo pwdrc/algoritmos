@@ -2,13 +2,17 @@
 
 const lista = require('./objetos');
 
-let posicaoDoMenorValor = 0;
+function apontaMenorValor(arr, posicaoInicial) {
+    
+    let menorValor = posicaoInicial;
 
-for (let i = 0; i < lista.length; i++) {
-
-    if(lista[i].valor < lista[posicaoDoMenorValor].valor) {
-        posicaoDoMenorValor = i;
+    for(let i = posicaoInicial; i < arr.length; i++) {
+        if(arr[i].valor < arr[menorValor].valor) {
+            menorValor = i;
+        }
     }
+    return arr[menorValor].valor;
 }
 
-console.log(lista[posicaoDoMenorValor].valor);
+teste = apontaMenorValor(lista, 0);
+console.log(teste);

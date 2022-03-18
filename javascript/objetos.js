@@ -17,7 +17,7 @@ const listaElementosValores = [
     }, 
     {
         elemento: "E",
-        valor: -1
+        valor: -1999
     }, 
     {
         elemento: "F",
