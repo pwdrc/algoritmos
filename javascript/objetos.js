@@ -1,6 +1,6 @@
 const listaElementosValores = [
     {
-        elemento: "A",
+        elemento: "X",
         valor: 10
     }, 
     {
@@ -12,7 +12,7 @@ const listaElementosValores = [
         valor: 40
     }, 
     {
-        elemento: "D",
+        elemento: "A",
         valor: -100
     }, 
     {
@@ -20,11 +20,11 @@ const listaElementosValores = [
         valor: -1999
     }, 
     {
-        elemento: "F",
+        elemento: "Y",
         valor: 30
     }, 
     {
-        elemento: "G",
+        elemento: "P",
         valor: 11,
     },
     {
@@ -32,7 +32,7 @@ const listaElementosValores = [
         valor: 4
     },
     {
-        elemento: "I",
+        elemento: "L",
         valor: 5
     }
 ];
