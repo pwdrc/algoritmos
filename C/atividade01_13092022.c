@@ -15,17 +15,26 @@
 #include <stdio.h>
 #include <string.h>
 
+void selecao();
+void bolha();
+
 int main() {
 	
 	char metodo[7];
 	scanf("%s", metodo);
 	//printf("%s", metodo);
 	
-	if(strcmp(metodo, "selecao") == 0)
-		printf("selecao");
+	int tamanho;
+	scanf("%d", &tamanho);
 
+	int vetor[tamanho];
+	for(int i = 0; i < tamanho; i++) {
+		scanf("%d", &vetor[i]);
+	}
+
+	if(strcmp(metodo, "selecao") == 0)
+	
 	else if(strcmp(metodo, "bolha") == 0)
-		printf("bolha");
 
 	else printf("nada");
 }
