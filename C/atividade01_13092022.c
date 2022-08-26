@@ -15,27 +15,64 @@
 #include <stdio.h>
 #include <string.h>
 
-void selecao();
-void bolha();
+void pegaVetor(int vetor[], int tamanho);
+void imprimeVetor(int vetor[], int tamanho);
+void selecao(int vetor[], int tamanho);
+void bolha(int vetor[], int tamanho);
 
 int main() {
 	
 	char metodo[7];
 	scanf("%s", metodo);
-	//printf("%s", metodo);
 	
 	int tamanho;
 	scanf("%d", &tamanho);
-
-	int vetor[tamanho];
-	for(int i = 0; i < tamanho; i++) {
-		scanf("%d", &vetor[i]);
-	}
-
-	if(strcmp(metodo, "selecao") == 0)
 	
-	else if(strcmp(metodo, "bolha") == 0)
+	int vetor[tamanho];
+	pegaVetor(vetor, tamanho);
 
-	else printf("nada");
+	if(strcmp(metodo, "selecao")) {
+		selecao(vetor, tamanho);		
+	}
+	
+	//else if(strcmp(metodo, "bolha") == 0)
+	
+	imprimeVetor(vetor,tamanho);
 }
 
+void pegaVetor(int vetor[], int tamanho) {
+	
+	for(int i = 0; i < tamanho; i++) {
+        	scanf("%d", &vetor[i]);
+        }
+}
+
+void imprimeVetor(int vetor[], int tamanho) {
+	
+	for(int i = 0; i < tamanho; i++) {
+		printf("%d ", vetor[i]);	
+	}
+}
+
+void selecao(int vetor[], int tamanho) {
+	
+	int menor, aux;
+	for(int i = 0; i < tamanho; i++) {
+		menor = i;
+		for(int j = i+1; j < tamanho; j++) {
+			// comparação
+			if(vetor[j] < vetor[menor]) {
+				printf("C %d %d \n", menor, j);
+				menor = j;
+			}
+		}		
+		
+		if(i != menor) {
+			// troca
+			printf("T %d %d \n", i, menor);
+			aux = vetor[i];
+			vetor[i] = vetor[menor];
+			vetor[menor] = aux;
+		}
+	}
+}
