@@ -22,20 +22,19 @@ void bolha(int vetor[], int tamanho);
 
 int main() {
 	
-	char metodo[7];
-	scanf("%s", metodo);
+	char metodo[10];
+	scanf("%99[^\n]", metodo);
 	
 	int tamanho;
 	scanf("%d", &tamanho);
 	
 	int vetor[tamanho];
 	pegaVetor(vetor, tamanho);
-
-	if(strcmp(metodo, "selecao")) {
-		selecao(vetor, tamanho);		
-	}
 	
-	//else if(strcmp(metodo, "bolha") == 0)
+	if(strcmp(metodo, "selecao") == 0) 
+		selecao(vetor, tamanho);		
+	else if(strcmp(metodo, "bolha") == 0)
+		printf("%s", metodo);
 	
 	imprimeVetor(vetor,tamanho);
 }
