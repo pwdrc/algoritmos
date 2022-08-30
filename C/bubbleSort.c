@@ -1,32 +1,46 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void bubbleSort(int vet[], int n); // n representa o tamanho do vetor a ordenar
+void swap(int *elemento_1, int *elemento_2);
+void bubbleSort(int *vetor, int tamanho);
 
 int main() {
-	
-	int n = 10;
-	int vet[] = {2, 1, 9, 0, 31, 4, 5, 4, 3, 2};
-	
-	bubbleSort(vet, n);
 
-	for(int i = 0; i < 10; i++) {
-		printf("%d ", vet[i]);
-	}
+    int tamanho, *vetor;
+    scanf("%d", &tamanho);
+    vetor = malloc(tamanho*sizeof(int));
+
+    for(int i = 0; i < tamanho; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    bubbleSort(vetor, tamanho-1);
+
+    for(int i = 0; i < tamanho; i++) {
+        printf("%d ", vetor[i]);
+    }
+
+    return 0;
+
 }
 
-void bubbleSort (int vet[], int n) {
+void bubbleSort(int *vetor, int tamanho) {
 
-	if(n <= 1)
-		return;
+    if(tamanho < 1)
+        return;
 
-	for(int i = 0; i < n; i++) {
-		int aux;
-		if(vet[i+1] < vet[i]) {
-			aux = vet[i];
-			vet[i] = vet[i+1];
-			vet[i+1] = aux;
-		}
-	}
+    for(int i = 0; i < tamanho; i++) {
+        if(vetor[i] > vetor[i+1])
+            swap(&vetor[i], &vetor[i+1]);
+        bubbleSort(vetor, tamanho-1);
+    }
 
-	bubbleSort(vet, n-1);
+}
+
+void swap(int *elemento_1, int *elemento_2) {
+
+    int aux = *elemento_1;
+    *elemento_1 = *elemento_2;
+    *elemento_2 = aux;
+
 }
