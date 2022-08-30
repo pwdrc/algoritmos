@@ -34,7 +34,7 @@ int main() {
 	if(strcmp(metodo, "selecao") == 0) 
 		selecao(vetor, tamanho);		
 	else if(strcmp(metodo, "bolha") == 0)
-		bolha(vetor, tamanho-1);
+		bolha(vetor, tamanho);
 	
 	for(int i = 0; i < tamanho; i++)
 		printf("%d ", vetor[i]);
@@ -65,19 +65,22 @@ void selecao(int vetor[], int tamanho) {
 
 void bolha(int vetor[], int tamanho) {
 
-	if(tamanho < 1)
-		return;
+	for(int i = 0; i < tamanho - 1; i++) {
+		for(int j = 0; j < tamanho - i - 1; j++) {
 
-	for(int i = 0; i < tamanho; i++) {
-		//compara
-		printf("C %d %d\n", i, i+1);
-		if(vetor[i] > vetor[i+1]) {
-			// troca
-			printf("T %d %d\n", i, i+1);
-			int aux = vetor[i];
-			vetor[i] = vetor[i+1];
-			vetor[i+1] = aux;
+				// comparação
+				printf("C %d %d\n", j, j+1);
+
+			if(vetor[j] > vetor[j+1]) {
+
+				// troca
+				printf("T %d %d\n", j, j+1); 
+				
+				int aux = vetor[j];
+				vetor[j] = vetor[j+1];
+				vetor[j+1] = aux;
+			}
 		}
-	bolha(vetor, tamanho-1);
 	}
+
 }
