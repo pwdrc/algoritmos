@@ -38,11 +38,14 @@ int main() {
 	
 	for(int i = 0; i < tamanho; i++)
 		printf("%d ", vetor[i]);
+
+	return 0;
 }
 
 void selecao(int vetor[], int tamanho) {
 	
 	int menor, aux;
+
 	for(int i = 0; i < tamanho; i++) {
 		menor = i;
 		for(int j = i+1; j < tamanho; j++) {
@@ -65,22 +68,31 @@ void selecao(int vetor[], int tamanho) {
 
 void bolha(int vetor[], int tamanho) {
 
+	int aux;
+	
 	for(int i = 0; i < tamanho - 1; i++) {
+	
+		int swap = 0; // observa se o vetor já está organizado e para a loop
+		
 		for(int j = 0; j < tamanho - i - 1; j++) {
 
-				// comparação
-				printf("C %d %d\n", j, j+1);
-
+			// compara
+			printf("C %d %d\n", j, j+1);
+			
 			if(vetor[j] > vetor[j+1]) {
-
-				// troca
-				printf("T %d %d\n", j, j+1); 
 				
-				int aux = vetor[j];
+				swap = 1;
+
+				//troca
+				aux = vetor[j];
 				vetor[j] = vetor[j+1];
 				vetor[j+1] = aux;
+
+				printf("T %d %d\n", j, j+1);
 			}
 		}
+		
+		if(!swap)
+			return;
 	}
-
 }
