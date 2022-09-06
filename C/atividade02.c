@@ -4,7 +4,14 @@ Faça um programa em C que receba o número Q de vetores.
 Após isso, deve ser lido o tamanho N de cada um dos Q vetores. 
 Em seguida, leia cada vetor. 
 O programa deve ordenar os vetores utilizando os método de inserção e merge. 
-Ao final deve-se imprimir o número de trocas e comparações realizadas por ambos os métodos em cada vetor, conforme a seguinte formatação: “M N T C”, onde M é o método (I para inserção e M para merge), N é o tamanho do vetor, T é o número de trocas e C é o número de comparações.
+Ao final deve-se imprimir o número de trocas e comparações 
+realizadas por ambos os métodos em cada vetor, 
+conforme a seguinte formatação: 
+“M N T C”, 
+onde M é o método (I para inserção e M para merge), 
+N é o tamanho do vetor, 
+T é o número de trocas e 
+C é o número de comparações.
 
 Observações importantes:
 
@@ -20,6 +27,9 @@ Observações importantes:
 */
 #include<stdio.h>
 #include<stdlib.h>
+
+void insertion(int arr[], int len);
+void merge(int arr[], int len);
 
 int main() {
   
@@ -38,12 +48,18 @@ int main() {
     vetor[i] = (int*)malloc(n[i] * sizeof(int));
   }
 
-
   // recebe valores para cada elemento de cada vetor  
   for(int i = 0; i < q; i++) {
     for(int j = 0; j < n[i]; j++) {
       scanf("%d", &vetor[i][j]);
     }
   }
-  
+
+  for(int i = 0; i < q; i++) {
+    insertion(vetor, q);
+    merge(vetor, q);
+  }
+
+return 0;
+
 }
