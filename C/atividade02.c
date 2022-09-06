@@ -18,3 +18,32 @@ Observações importantes:
    quando i > 0 é falso, a comparação v[i] > x não é realizada.
 
 */
+#include<stdio.h>
+#include<stdlib.h>
+
+int main() {
+  
+  // q: número de vetores
+  int q;
+  scanf("%d", &q);
+
+  int *vetor[q];
+
+  // n: tamanho de cada um dos 'q' vetores
+  int n[q];
+  for(int i = 0; i < q; i++) { 
+    scanf("%d", &n[i]);
+
+    // aloca memória para cada vetor, na forma 'vetor[i][n[i]]'
+    vetor[i] = (int*)malloc(n[i] * sizeof(int));
+  }
+
+
+  // recebe valores para cada elemento de cada vetor  
+  for(int i = 0; i < q; i++) {
+    for(int j = 0; j < n[i]; j++) {
+      scanf("%d", &vetor[i][j]);
+    }
+  }
+  
+}
