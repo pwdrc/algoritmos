@@ -28,38 +28,32 @@ Observações importantes:
 #include<stdio.h>
 #include<stdlib.h>
 
-void insertion(int arr[], int len);
-void merge(int arr[], int len);
+void insertion(int** arr, int len);
+void merge(int** arr, int len);
 
 int main() {
   
   // q: número de vetores
   int q;
   scanf("%d", &q);
+ 
+  // struc com o tamanho e os elementos de cada vetor
+  typedef struct {
+    // n: tamanho
+    int n;
+    // conteúdo
+    int *elementos;
+  } vetor;
 
-  int *vetor[q];
-
-  // n: tamanho de cada um dos 'q' vetores
-  int n[q];
-  for(int i = 0; i < q; i++) { 
-    scanf("%d", &n[i]);
-
-    // aloca memória para cada vetor, na forma 'vetor[i][n[i]]'
-    vetor[i] = (int*)malloc(n[i] * sizeof(int));
-  }
-
-  // recebe valores para cada elemento de cada vetor  
+  vetor v[q];
+  
   for(int i = 0; i < q; i++) {
-    for(int j = 0; j < n[i]; j++) {
-      scanf("%d", &vetor[i][j]);
-    }
+    scanf("%d", &v[i].n);
+    v[i].elementos = (int*)malloc(v[i].n * sizeof(int));
   }
-
+    
   for(int i = 0; i < q; i++) {
-    insertion(vetor, q);
-    merge(vetor, q);
+    for(int j = 0; j < v[i].n; j++)
+      scanf("%d", &v[i].elementos[j]);
   }
-
-return 0;
-
-}
+} 
