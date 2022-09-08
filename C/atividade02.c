@@ -28,8 +28,8 @@ Observações importantes:
 #include<stdio.h>
 #include<stdlib.h>
 
-void insertion(int** arr, int len);
-void merge(int** arr, int len);
+void insertion(int v[], int n, int c, int t);
+void merge(int v[], int n);
 
 int main() {
   
@@ -46,14 +46,42 @@ int main() {
   } vetor;
 
   vetor v[q];
+
+  // c: número de comparações
+  // t: número de trocas
+  int c = 0;
+  int t = 0;
   
   for(int i = 0; i < q; i++) {
     scanf("%d", &v[i].n);
     v[i].elementos = (int*)malloc(v[i].n * sizeof(int));
   }
-    
+
   for(int i = 0; i < q; i++) {
     for(int j = 0; j < v[i].n; j++)
       scanf("%d", &v[i].elementos[j]);
   }
+
+  for(int i = 0; i < q; i++) {
+    for(int j = 0; j < v[i].n; j++) {
+      insertion(v[i].elementos, v[i].n, c, t);
+      printf("I %d %d %d\n", v[i].n, t, c);
+    }
+  }
 } 
+
+void insertion(int v[], int n, int c, int t) {
+  int key, j;
+  for(int i = 0; i < n; i++) {
+    key = v[i];
+    j = i - 1;
+    c++;
+
+    while(j >= 0 && v[j] > key) {
+      v[j+1] = v[j];
+      j--;
+    }
+    v[j+1] = key;
+    t++;
+  }
+}
