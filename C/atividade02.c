@@ -28,7 +28,7 @@ Observações importantes:
 #include<stdio.h>
 #include<stdlib.h>
 
-void insertion(int v[], int n, int c, int t);
+void insertion(int elementos[], int n, int c, int t);
 void merge(int v[], int n);
 
 int main() {
@@ -65,23 +65,23 @@ int main() {
   for(int i = 0; i < q; i++) {
     for(int j = 0; j < v[i].n; j++) {
       insertion(v[i].elementos, v[i].n, c, t);
-      printf("I %d %d %d\n", v[i].n, t, c);
     }
+    printf("I %d %d %d\n", v[i].n, t, c);
   }
 } 
 
-void insertion(int v[], int n, int c, int t) {
+void insertion(int elementos[], int n, int c, int t) {
   int key, j;
   for(int i = 0; i < n; i++) {
-    key = v[i];
+    key = elementos[i];
     j = i - 1;
     c++;
 
-    while(j >= 0 && v[j] > key) {
-      v[j+1] = v[j];
+    while(j >= 0 && elementos[j] > key) {
+      elementos[j+1] = elementos[j];
       j--;
     }
-    v[j+1] = key;
+    elementos[j+1] = key;
     t++;
   }
 }
