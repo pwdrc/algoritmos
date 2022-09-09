@@ -28,33 +28,30 @@ Observações importantes:
 #include<stdio.h>
 #include<stdlib.h>
 
-void insertion(int elementos[], int n, int c, int t);
+typedef struct {
+    
+    int n;
+    int *elementos;
+    int c;
+    int t;
+
+  } vetor;
+
+void insertion(vetor *v);
 void merge(int v[], int n);
 
 int main() {
   
-  // q: número de vetores
   int q;
   scanf("%d", &q);
  
-  // struc com o tamanho e os elementos de cada vetor
-  typedef struct {
-    // n: tamanho
-    int n;
-    // conteúdo
-    int *elementos;
-  } vetor;
-
   vetor v[q];
 
-  // c: número de comparações
-  // t: número de trocas
-  int c = 0;
-  int t = 0;
-  
   for(int i = 0; i < q; i++) {
     scanf("%d", &v[i].n);
     v[i].elementos = (int*)malloc(v[i].n * sizeof(int));
+    v[i].c = 0;
+    v[i].t = 0;
   }
 
   for(int i = 0; i < q; i++) {
@@ -63,25 +60,25 @@ int main() {
   }
 
   for(int i = 0; i < q; i++) {
-    for(int j = 0; j < v[i].n; j++) {
-      insertion(v[i].elementos, v[i].n, c, t);
-    }
-    printf("I %d %d %d\n", v[i].n, t, c);
+    insertion(&v[i]);
+    printf("I %d %d %d\n", v[i].n, v[i].t, v[i].c);
   }
 } 
 
-void insertion(int elementos[], int n, int c, int t) {
-  int key, j;
-  for(int i = 0; i < n; i++) {
-    key = elementos[i];
-    j = i - 1;
-    c++;
+void insertion(vetor *v) {
+  int key, y;
+  for(int x = 0; x < v->n; x++) {
+    key = v->elementos[x];
+    y = x - 1;
+    v->t++;
 
-    while(j >= 0 && elementos[j] > key) {
-      elementos[j+1] = elementos[j];
-      j--;
+    while(y >= 0 && v->elementos[y] > key) {
+      v->elementos[y+1] = v->elementos[y];
+      y--;
+      v->c++;
+      v->t++;
     }
-    elementos[j+1] = key;
-    t++;
-  }
+    v->elementos[y+1] = key;
+    v->t++;
+   }
 }
