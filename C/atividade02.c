@@ -30,15 +30,22 @@ Observações importantes:
 
 typedef struct {
     
+    // n: tamanho
     int n;
+    
+    // array/vetor
     int *elementos;
+    
+    // contador de comparações
     int c;
+    
+    //contador de trocas
     int t;
 
   } vetor;
 
 void insertion(vetor *v);
-void merge(int v[], int n);
+//void merge(int v[], int n);
 
 int main() {
   
@@ -67,7 +74,7 @@ int main() {
 
 void insertion(vetor *v) {
   int key, y;
-  for(int x = 0; x < v->n; x++) {
+  for(int x = 1; x < v->n; x++) {
     key = v->elementos[x];
     y = x - 1;
     v->t++;
@@ -78,6 +85,8 @@ void insertion(vetor *v) {
       v->c++;
       v->t++;
     }
+    if(y >= 0 && v->elementos[y] <= key)
+      v->c++;
     v->elementos[y+1] = key;
     v->t++;
    }
