@@ -5,19 +5,15 @@ import edu.princeton.cs.algs4.StdRandom;
 public class RandomWord {
     public static void main(String[] args) {
         int i = 1;
-        String FinalWord = "string";
+        String finalWord = "string";
         do {
           String a = StdIn.readString();
-          if(StdRandom.bernoulli(i)) {
-            FinalWord = a;
+          if (StdRandom.bernoulli(1/i)) {
+            finalWord = a;
           }
           i++;
         } while (!(StdIn.isEmpty()));
 
-        StdOut.println(FinalWord);
-
-        //for(int i = 0; i < a.length; i++) {
-
-        //}
+        StdOut.println(finalWord);
     }
 } 
