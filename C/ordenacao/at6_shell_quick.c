@@ -1,6 +1,6 @@
 /* 
 
-    atividade 06 - ICC 2 - BSI - ICMC - USP - 2022
+    Atividade 06 - ICC 2 - BSI - ICMC - USP - 2022
 
     Faça um programa em C que leia o número N de elementos de um vetor V.
     Após isso, leia os N elementos de V.
@@ -49,11 +49,18 @@ int main() {
     for (int i = 0; i < n; i++)
         scanf("%d", &n[i]);
 
+    // contadores
+    // cs: contador do shell
+    // cq: contador do quick
+    // int cs = 0;
+    // int cq = 0;
+
     // shell
     void shell(int v[], int n) {
         int gap = 1;
-        while (gap <= n)
+        while (gap <= n) {
             gap *= 2;
+        }
         gap = gap / 2 - 1;
         while(gap > 0) {
             for (int i = gap; i < n; i += gap) {
