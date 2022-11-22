@@ -23,3 +23,25 @@ OOP - Object-Oriented Programming
 
 		- So: a class is a template for objects
 		- object is a instance of a class
+
+
+	CLASS ATTRIBUTES
+
+		- class attributes are variables within a class
+
+		public class Main {
+			int x = 40; // class attribute
+			int y = 2; // class attribute
+		}
+
+	Accessing Attributes
+
+		public class Main {
+			int resposta = 42;
+		
+
+			public static void main(String[] args) {
+				Main myObj = new Main();
+				System.out.println(myObj.resposta);
+				}
+			}
