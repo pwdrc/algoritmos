@@ -1,0 +1,47 @@
+OOP - Object-Oriented Programming
+	Advantages:
+		- Faster and easier
+		- clear structure for the programs
+		- helps to keep the code DRY (dont repeat yourself)
+		- reusable aplications with less code and shorter development time
+
+	CLASSES AND OBJECTS
+		- both are main aspects of object-oriented programming
+		- Ex.:
+				CLASS 		|		OBJECTS		
+			________________|_________________
+				fruit		|		apple
+							|		banana
+							|		pineapple
+
+
+				CLASS 		|		OBJECTS		
+			________________|_________________
+							|		BMW
+					car		|		Volvo
+							|		Fiat
+
+		- So: a class is a template for objects
+		- object is a instance of a class
+
+
+	CLASS ATTRIBUTES
+
+		- class attributes are variables within a class
+
+		public class Main {
+			int x = 40; // class attribute
+			int y = 2; // class attribute
+		}
+
+	Accessing Attributes
+
+		public class Main {
+			int resposta = 42;
+		
+
+			public static void main(String[] args) {
+				Main myObj = new Main();
+				System.out.println(myObj.resposta);
+				}
+			}
