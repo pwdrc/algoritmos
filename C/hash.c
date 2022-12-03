@@ -11,7 +11,9 @@
 
 #include <stdio.h>
 
-int hash(int key, int M);
+void inserir(int * tabela, int elemento, int M);
+void remover(int * tabela, int elemento, int M);
+int buscarElemento(int * tabela, int elemento, int M);
 
 int main() {
 	
@@ -22,23 +24,91 @@ int main() {
 	// cria tabela de tamanho M
 	int tabela[M];
 
+	// coloca todos os valores iguai a -1
+	// serve para facilitar a implementação do hash
+	// posição == -1: posição vazia e pode receber novas informações
+	for(int i = 0; i < M; i++)
+		tabela[i] = -1;
+
 	// N: total de inserções da tabela
 	int N;
 	scanf("%d", &N);
-	
-	// leitura dos elementos da tabela
-	int elemento;
+
 	for(int i = 0; i < N; i++) {
-		
+		int elemento;	
 		scanf("%d", &elemento);
-		tabela[hash(elemento, M)] = elemento;
+		inserir(tabela, elemento, M);
 		
 	}
 
+	// D: total de remoções a serem realizadas na tabela
+	int D;
+	scanf("%d", &D);
+
+	
+	for(int i = 0; i < D; i++) {
+		int paraRemover;
+		scanf("%d", &paraRemover);
+		remover(tabela, paraRemover, M);
+	}
+
+
+	// B: número de buscas
+	int B;
+	scanf("%d", &B);
+
+	for(int i = 0; i < B; i++) {
+		int paraBuscar;
+		scanf("%d", &paraBuscar);
+		printf("%d ", buscarElemento(tabela, paraBuscar, M));
+	}
+	
+	return 0;
 }
 
-int hash(int key, int M) {
+void inserir(int * tabela, int elemento, int M) {
 
-	return key % M;
+	int posicao;
+	for(int i = 0; i < M; i++) {
 
+		// hashing
+		posicao = (elemento + i) % M;
+		
+		if(tabela[posicao] == elemento)
+			return;
+			
+		else if(tabela[posicao] == -1) {
+			tabela[posicao] = elemento;
+			return;
+		}
+
+		else return;
+	}
+}
+
+void remover(int * tabela, int elemento, int M) {
+
+	int posicao;
+	for(int i = 0; i < M; i++) {
+		posicao = (elemento + i) % M;
+		if(tabela[posicao] == elemento) {
+			tabela[posicao] = -1;
+			return;
+		} 
+	}
+	return;
+}
+
+
+int buscarElemento(int * tabela, int elemento, int M) {
+
+	int posicao;
+	for(int i = 0; i < M; i++) {
+		posicao = (elemento + i) % M;
+		if(tabela[posicao] == elemento)
+			return posicao;
+	}
+
+	return -1;
+	
 }
