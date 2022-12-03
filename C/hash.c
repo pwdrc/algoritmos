@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-int hash(int key);
+int hash(int key, int M);
 
 int main() {
 	
@@ -27,13 +27,18 @@ int main() {
 	scanf("%d", &N);
 	
 	// leitura dos elementos da tabela
-	for(int i = 0; i < N; i++)
-		scanf("%d", tabela[M];
+	int elemento;
+	for(int i = 0; i < N; i++) {
+		
+		scanf("%d", &elemento);
+		tabela[hash(elemento, M)] = elemento;
+		
+	}
 
 }
 
-int hash_sondagemLinear(int key) {
+int hash(int key, int M) {
 
-	return key % M
+	return key % M;
 
 }
