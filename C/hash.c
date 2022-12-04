@@ -45,9 +45,9 @@ int main() {
 	int D;
 	scanf("%d", &D);
 
-	
+	int paraRemover;
 	for(int i = 0; i < D; i++) {
-		int paraRemover;
+		
 		scanf("%d", &paraRemover);
 		remover(tabela, paraRemover, M);
 	}
@@ -57,8 +57,9 @@ int main() {
 	int B;
 	scanf("%d", &B);
 
+	int paraBuscar;
 	for(int i = 0; i < B; i++) {
-		int paraBuscar;
+		
 		scanf("%d", &paraBuscar);
 		printf("%d ", buscarElemento(tabela, paraBuscar, M));
 	}
@@ -88,15 +89,11 @@ void inserir(int * tabela, int elemento, int M) {
 
 void remover(int * tabela, int elemento, int M) {
 
-	int posicao;
+	int posicao = buscaElement(tabela, elemento, M);
 	for(int i = 0; i < M; i++) {
-		posicao = (elemento + i) % M;
-		if(tabela[posicao] == elemento) {
+		if(posicao != -1)
 			tabela[posicao] = -1;
-			return;
-		} 
 	}
-	return;
 }
 
 
@@ -108,7 +105,5 @@ int buscarElemento(int * tabela, int elemento, int M) {
 		if(tabela[posicao] == elemento)
 			return posicao;
 	}
-
 	return -1;
-	
 }
